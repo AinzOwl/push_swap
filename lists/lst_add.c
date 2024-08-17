@@ -1,14 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   globals.c                                          :+:      :+:    :+:   */
+/*   lst_add.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/17 00:14:06 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 02:03:38 by efelaous         ###   ########.fr       */
+/*   Created: 2024/08/17 01:39:20 by efelaous          #+#    #+#             */
+/*   Updated: 2024/08/17 07:52:37 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+t_list	*lst_add(t_list *lst, int value)
+{
+	t_list *stack;
+
+	if (lst == NULL)
+		return lst_new(value);
+	stack = lst;
+	while (stack->next != NULL)
+		stack = stack->next;
+	stack->next = lst_new(value);
+	return (lst);
+}

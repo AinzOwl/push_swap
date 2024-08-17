@@ -6,7 +6,7 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:05:36 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 00:22:45 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 01:24:31 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ int	ft_atoi(const char *str)
 		st++;
 	}
     if (*st != '\0')
-        error("Wrong value");
+        error("Error");
 	return (neg * in);
 }

@@ -6,7 +6,7 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 22:37:51 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 00:56:42 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 06:13:46 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,3 @@ int	check_arg(char *av)
 		return 3;
 	return 0;
 }
-
-// resizeAndAdd(int* arr, int old_size, int new_int)
-// int main(int ac, char **av)
-// {
-// 	ft_printf("%d\n", check_arg(av[1]));
-// }
