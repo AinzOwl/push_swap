@@ -6,15 +6,15 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 04:56:53 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 09:38:12 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:48:14 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_index(t_list *st, int index)
+int	get_index(t_list *st, unsigned int index)
 {
-	int i;
+	unsigned int	i;
 
 	i = 0;
 	while (st)
@@ -24,21 +24,22 @@ int	get_index(t_list *st, int index)
 		st = st->next;
 		i++;
 	}
-	return -1;
+	return (-1);
 }
 
 void	pa_b(t_list **st_a, t_list **st_b)
 {
-	int	i;
-	int	j;
-	int	size;
+	unsigned int	i;
+	int				j;
+	unsigned int	size;
 
 	i = 0;
 	size = lst_size(*st_a);
 	j = size / 15;
 	if (size <= 100)
 		j = size / 7;
-	while (*st_a) {
+	while (*st_a)
+	{
 		if ((*st_a)->index <= i)
 		{
 			pb(st_a, st_b);
@@ -57,8 +58,8 @@ void	pa_b(t_list **st_a, t_list **st_b)
 
 void	pb_a(t_list **st_a, t_list **st_b)
 {
-	int	index;
-	int	size;
+	unsigned int	index;
+	unsigned int	size;
 
 	while (*st_b)
 	{
@@ -78,7 +79,7 @@ void	pb_a(t_list **st_a, t_list **st_b)
 	}
 }
 
-void sort(t_list **st_a, t_list **st_b)
+void	sort(t_list **st_a, t_list **st_b)
 {
 	int	size_a;
 
@@ -92,16 +93,13 @@ void sort(t_list **st_a, t_list **st_b)
 	}
 }
 
-// void f() {system("leaks push_swap");}
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_list	*st_a;
 	t_list	*st_b;
 	t_list	*tmp;
 	int		sorted;
 
-	// at
 	if (ac == 1)
 		exit(0);
 	st_a = stackgen(ac, av);
@@ -109,12 +107,12 @@ int main(int ac, char **av)
 	sort_indexes(st_a);
 	tmp = st_a;
 	sorted = 1;
-	while(tmp && tmp->next)
+	while (tmp && tmp->next)
 	{
-		if (tmp->index > tmp->next->index) 
+		if (tmp->index > tmp->next->index)
 		{
 			sorted = 0;
-			break;
+			break ;
 		}
 		tmp = tmp->next;
 	}

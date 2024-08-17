@@ -6,35 +6,36 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:30:46 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 10:05:28 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:35:19 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int words_num(char *av)
+int	words_num(char *av)
 {
-	int i;
+	int	i;
 
 	av = skip_space(av);
 	i = 0;
 	while (*av)
 	{
-		while(*av != ' ' && *av)
+		while (*av != ' ' && *av)
 			av++;
 		i++;
 		av = skip_space(av);
 	}
-	return i;
+	return (i);
 }
 
-int *split(char *av, int *size)
+int	*split(char *av, int *size)
 {
-	int *splitted;
-	int i = 0;
+	int	*splitted;
+	int	i;
 
+	i = 0;
 	if (check_arg(av))
-		return NULL;
+		return (NULL);
 	av = skip_space(av);
 	*size = words_num(av);
 	splitted = malloc(sizeof(int) * *size);
@@ -43,7 +44,7 @@ int *split(char *av, int *size)
 	while (i < *size)
 	{
 		if (check_arg(av))
-			return NULL;
+			return (NULL);
 		splitted[i] = ft_atoi(av);
 		while (is_digit(*av) || is_sign(*av))
 			av++;
@@ -51,24 +52,32 @@ int *split(char *av, int *size)
 			av++;
 		i++;
 	}
-	return splitted;
+	return (splitted);
 }
 
-t_list *stackgen(int ac, char **av)
+void	stackgen_init(int *size, t_list **stacka, int *i, int *j)
 {
-	int size = 0;
-	t_list *stacka;
-	int *splited;
+	*size = 0;
+	*stacka = NULL;
+	*i = 1;
+	*j = 0;
+}
 
-	int i = 1;
-	int j = 0;
-	stacka = NULL;
+t_list	*stackgen(int ac, char **av)
+{
+	int		size;
+	t_list	*stacka;
+	int		*splited;
+	int		i;
+	int		j;
+
+	stackgen_init(&size, &stacka, &i, &j);
 	while (i < ac)
 	{
 		j = 0;
 		splited = split(av[i], &size);
 		if (splited == NULL)
-				error_lst("Error", stacka);
+			error_lst("Error", stacka);
 		while (j < size)
 		{
 			if (!is_unique(stacka, splited[j]))
@@ -80,5 +89,5 @@ t_list *stackgen(int ac, char **av)
 		size = 0;
 		i++;
 	}
-	return stacka;
+	return (stacka);
 }

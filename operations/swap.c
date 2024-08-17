@@ -6,7 +6,7 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 03:08:06 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 04:49:47 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:52:21 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	sa(t_list **st_a)
 {
-	int tmp;
-	int tmp2;
+	int	tmp;
+	int	tmp2;
 
 	tmp = (*st_a)->value;
 	tmp2 = (*st_a)->index;
@@ -28,8 +28,8 @@ void	sa(t_list **st_a)
 
 void	sb(t_list **st_b)
 {
-	int tmp;
-	int tmp2;
+	int	tmp;
+	int	tmp2;
 
 	tmp = (*st_b)->value;
 	tmp2 = (*st_b)->index;
@@ -37,11 +37,4 @@ void	sb(t_list **st_b)
 	(*st_b)->index = (*st_b)->next->index;
 	(*st_b)->next->index = tmp2;
 	write(1, "sb\n", 3);
-}
-
-void	ss(t_list **st_a, t_list **st_b)
-{
-	sa(st_a);
-	sb(st_b);
-	write(1, "ss\n", 3);
 }

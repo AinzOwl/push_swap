@@ -6,58 +6,60 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 04:59:29 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 08:35:43 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:41:34 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 #include <unistd.h>
 
-
-void	sort_three(t_list **st_a, int indx)
+void	sort_three(t_list **st_a, unsigned int indx)
 {
-	if((*st_a)->index == indx && (*st_a)->next->index == indx + 1)
+	if ((*st_a)->index == indx && (*st_a)->next->index == indx + 1)
 		return ;
-	else if((*st_a)->index == indx + 1 && (*st_a)->next->index == indx)
+	else if ((*st_a)->index == indx + 1 && (*st_a)->next->index == indx)
 		sa(st_a);
-	else if((*st_a)->index == indx + 1 && (*st_a)->next->index == indx + 2)
+	else if ((*st_a)->index == indx + 1 && (*st_a)->next->index == indx + 2)
 		rra(st_a);
-	else if((*st_a)->index == indx + 2 && (*st_a)->next->index == indx)
+	else if ((*st_a)->index == indx + 2 && (*st_a)->next->index == indx)
 		ra(st_a);
-	else if((*st_a)->index == indx + 2 && (*st_a)->next->index == indx + 1)
+	else if ((*st_a)->index == indx + 2 && (*st_a)->next->index == indx + 1)
 	{
 		ra(st_a);
 		sa(st_a);
 	}
-	else if((*st_a)->index ==  indx && (*st_a)->next->index == indx + 2)
+	else if ((*st_a)->index == indx && (*st_a)->next->index == indx + 2)
 	{
 		ra(st_a);
 		sa(st_a);
 		rra(st_a);
 	}
 }
+
 void	sort_four(t_list **st_a, t_list **st_b)
 {
-	int i;
+	int	i;
 
-	if (!st_a || !*st_a) return;
+	if (!st_a || !*st_a)
+		return ;
 	i = 0;
 	while (i < 4)
 	{
 		if ((*st_a)->index == 0)
-        {
-            pb(st_a, st_b);
-            break;
-        }
-        ra(st_a);
-        i++;
+		{
+			pb(st_a, st_b);
+			break ;
+		}
+		ra(st_a);
+		i++;
 	}
 	sort_three(st_a, 1);
 	pa(st_a, st_b);
 }
+
 void	sort_five(t_list **st_a, t_list **st_b)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	while (count < 2)

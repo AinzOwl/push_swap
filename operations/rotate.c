@@ -6,19 +6,18 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 03:12:58 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 07:49:54 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 11:52:14 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
 void	ra(t_list **st_a)
 {
-	t_list *first;
-	t_list *tmp;
+	t_list	*first;
+	t_list	*tmp;
 	int		size;
-	
+
 	size = lst_size(*st_a);
 	if (size && size < 2)
 		return ;
@@ -34,10 +33,10 @@ void	ra(t_list **st_a)
 
 void	rb(t_list **st_b)
 {
-	t_list *first;
-	t_list *tmp;
+	t_list	*first;
+	t_list	*tmp;
 	int		size;
-	
+
 	size = lst_size(*st_b);
 	if (size && size < 2)
 		return ;
@@ -49,11 +48,4 @@ void	rb(t_list **st_b)
 	*st_b = first->next;
 	first->next = NULL;
 	write(1, "rb\n", 3);
-}
-
-void	rr(t_list **st_a, t_list **st_b)
-{
-	ra(st_a);
-	rb(st_b);
-	write(1, "rr\n", 3);
 }
