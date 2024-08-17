@@ -6,7 +6,7 @@
 /*   By: efelaous <efelaous@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/17 00:30:46 by efelaous          #+#    #+#             */
-/*   Updated: 2024/08/17 03:01:49 by efelaous         ###   ########.fr       */
+/*   Updated: 2024/08/17 10:05:28 by efelaous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int *split(char *av, int *size)
 		if (check_arg(av))
 			return NULL;
 		splitted[i] = ft_atoi(av);
-		while (is_digit(*av))
+		while (is_digit(*av) || is_sign(*av))
 			av++;
 		while (is_space(*av))
 			av++;
